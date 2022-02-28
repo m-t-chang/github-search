@@ -97,4 +97,11 @@ Assume:
     -   hitting enter will execute the search, and display the results below
     -   user can type in a new search field and view autocomplete hints. The results below will not change until the user hits Enter or clicks on an autocomplete option.
 
+Future enhancements:
+
+- autocomplete pop up may not come back if you type something, wait for box to appear, then type something that doesn't exist in the box so it goes away. Expected behavior would be that the box comes back after the new query finishes, but the box never comes back.
+
 ## How to execute the solution
+
+1. npm install
+2. npm start

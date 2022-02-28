@@ -66,6 +66,7 @@ function App() {
             {/* {JSON.stringify(searchResults?.items)} */}
             <Autocomplete
                 freeSolo
+                loading={true}
                 value={value}
                 onChange={(event, newValue) => setValue(newValue)}
                 inputValue={inputValue}
