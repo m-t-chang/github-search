@@ -1,6 +1,6 @@
 # github-search
- Search box with autocomplete using GitHub Search API
 
+Search box with autocomplete using GitHub Search API
 
 # Getting Started with Create React App
 
@@ -81,3 +81,20 @@ The React app should have the following:
 
 -   A web page that has a search form
 -   The list of results based on the search input
+
+## DEV NOTES
+
+To do list:
+
+-   get GitHub Search API working in Postman
+-   basic page layout, use Material UI
+
+Assume:
+
+-   doing a "repository" search with GitHub Search, as opposed to code, commits, issues, etc., because this is the default mode on the GitHub.com search
+-   autocomplete box behavior
+    -   options are displayed in a pop up. These are the result of the query using whatever the user has typed in so far.
+    -   hitting enter will execute the search, and display the results below
+    -   user can type in a new search field and view autocomplete hints. The results below will not change until the user hits Enter or clicks on an autocomplete option.
+
+## How to execute the solution
