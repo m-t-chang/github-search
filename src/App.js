@@ -13,6 +13,7 @@ function App() {
     const [value, setValue] = useState("");
     const [inputValue, setInputValue] = useState("chicken");
 
+    // when the Autocomplete's input value changes, call the API and refresh the autocomplete results
     // abort boilerplate code is from https://blog.logrocket.com/understanding-react-useeffect-cleanup-function/
     // setTimeout code is from https://stackoverflow.com/questions/42217121/how-to-start-search-only-when-user-stops-typing
     useEffect(() => {
@@ -34,14 +35,13 @@ function App() {
                 .then((responseAsJson) => {
                     // handle success
                     setSearchResults(responseAsJson);
-                    //console.log("setting searchResults to: ", responseAsJson);
                 })
-                .catch((err) => {
-                    if (err.name === "AbortError") {
+                .catch((errDuringFetch) => {
+                    if (errDuringFetch.name === "AbortError") {
                         console.log("successfully aborted");
                     } else {
                         // handle error
-                        throw err;
+                        throw errDuringFetch;
                     }
                 });
             return () => {};
@@ -55,15 +55,9 @@ function App() {
         };
     }, [inputValue]);
 
-    // when the Autocomplete's input value changes, call the API and refresh the autocomplete results
-    function handleInputValueChange() {
-        console.log("hello");
-    }
-
     return (
         <Container>
             <h1>GitHub Search with Autocomplete</h1>
-            {/* {JSON.stringify(searchResults?.items)} */}
             <Autocomplete
                 freeSolo
                 loading={true}
@@ -81,6 +75,7 @@ function App() {
                 renderInput={(params) => (
                     <TextField {...params} label="Search GitHub Repositories" />
                 )}
+                sx={{ backgroundColor: "white" }}
             />
             {searchResults.items ? (
                 <h2>
