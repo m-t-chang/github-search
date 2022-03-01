@@ -30,7 +30,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ## Future enhancements:
 
--   autocomplete pop up may not come back if you type something, wait for box to appear, then type something that doesn't exist in the box so it goes away. Expected behavior would be that the box comes back after the new query finishes, but the box never comes back.
+-   Bugfix: autocomplete pop up may not come back if you type something, wait for box to appear, then type something that doesn't exist in the box so it goes away. Expected behavior would be that the box comes back after the new query finishes, but the box never comes back.
 -   improve test coverage, e.g. to test autocomplete results, perhaps using snapshots.
 -   split it into two components, one for the search and one for results display
 -   address the warning about duplicate keys when rendering search results. One solution is to pass a custom function to define the options, because by default MUI uses option.label and there may be duplicates.
