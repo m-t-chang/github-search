@@ -5,9 +5,16 @@ Search box with autocomplete using GitHub Search API
 ## Assumptions about requirements
 
 -   we are doing a "repository" search with GitHub Search, as opposed to code, commits, issues, etc., because this is the default mode on the GitHub.com search
+-   the app will have an input box and a section to display results
 -   autocomplete box behavior
     -   Sugesstions are displayed in a pop up, which are the result of the query using whatever the user has typed in so far.
-    -   The search will execute as soon as the user stops typing, so there's no need to hit Enter to do the search
+    -   clicking a suggestion from the dropdown will place that into the input box, then search for it
+    -   The search will execute as soon as the user stops typing, so there's no need to hit Enter to do the search and get results
+    -   Input box will wait 0.5s for the user to stop typing before fetching the API
+    -   suggestion pop up will display "Loading" when loading (this is not fully implemented)
+-   results display
+    -   display only name and description of repository, and the number of search results
+    -   basic formatting and styling only
 
 ## How to run the project
 
