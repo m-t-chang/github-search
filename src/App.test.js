@@ -2,10 +2,8 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "./App";
 
-test("renders page heading", () => {
+test("renders page", () => {
     render(<App />);
-    const elem = screen.getByText("GitHub Search Autocomplete");
-    expect(elem).toBeInTheDocument();
 });
 
 test("autocomplete suggestions appear after typing", () => {

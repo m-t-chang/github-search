@@ -34,7 +34,7 @@ function App() {
                 .then((responseAsJson) => {
                     // handle success
                     setSearchResults(responseAsJson);
-                    console.log("setting searchResults to: ", responseAsJson);
+                    //console.log("setting searchResults to: ", responseAsJson);
                 })
                 .catch((err) => {
                     if (err.name === "AbortError") {
@@ -62,7 +62,7 @@ function App() {
 
     return (
         <Container>
-            <h1>GitHub Search Autocomplete</h1>
+            <h1>GitHub Search with Autocomplete</h1>
             {/* {JSON.stringify(searchResults?.items)} */}
             <Autocomplete
                 freeSolo
@@ -79,15 +79,24 @@ function App() {
                     }) || []
                 }
                 renderInput={(params) => (
-                    <TextField
-                        {...params}
-                        label="Search GitHub Repositories..."
-                    />
+                    <TextField {...params} label="Search GitHub Repositories" />
                 )}
             />
+            {searchResults.items ? (
+                <h2>
+                    Results - {searchResults?.total_count} found, displaying{" "}
+                    {searchResults?.items?.length}
+                </h2>
+            ) : (
+                <></>
+            )}
             <ul>
                 {searchResults?.items?.map((elem) => (
-                    <li key={elem.id}>{elem.name}</li>
+                    <li key={elem.id}>
+                        <a href={elem.html_url}>{elem.name}</a>
+                        {" - "}
+                        {elem.description}
+                    </li>
                 ))}
             </ul>
         </Container>
